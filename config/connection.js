@@ -1,6 +1,6 @@
 //Require mysql and dotenv dependencies
 const mysql = require('mysql');
-require('dotenv').config;
+require('dotenv').config();
 
 //.env
 const connection = mysql.createConnection({

@@ -1,0 +1,1 @@
+--Populate the burgers table with three entries

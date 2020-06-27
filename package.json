@@ -1,0 +1,24 @@
+{
+  "name": "handlebars_burger_app",
+  "version": "1.0.0",
+  "description": "Handlebars Burger App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sehouse/handlebars_burger_app.git"
+  },
+  "author": "Scott House",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sehouse/handlebars_burger_app/issues"
+  },
+  "homepage": "https://github.com/sehouse/handlebars_burger_app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "mysql": "^2.18.1"
+  }
+}

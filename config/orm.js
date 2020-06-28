@@ -1,42 +1,41 @@
-//import connection.js into orm.js
-const connection = require('../config/connection.js');
+const connection = require("../config/connection.js");
 
-//Helper functions for SQL syntax
-const printQuestionMarks = (number)=>{
-    let array = [];
-    for (let i = 0; i < number; i++){
-        array.push('?');
+const printQuestionMarks = (num) => {
+    let arr = [];
+
+    for (let i = 0; i < num; i++) {
+        arr.push("?");
     }
-    return array.toString();
+
+    return arr.toString();
 }
 
-const objToSql = (object) => {
-    let array = [];
-    for (let key in object) {
-        if (Object.hasOwnProperty.call(object, key)) {
-            if (typeof value === 'string' && value.indexOf(' ') >= 0) {
+const objToSql = (ob) => {
+    let arr = [];
+
+    for (let key in ob) {
+        let value = ob[key];
+        if (Object.hasOwnProperty.call(ob, key)) {
+            if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
             }
-            array.push(key + '=' + value);
+            arr.push(key + "=" + value);
         }
     }
-    return array.toString();
+    return arr.toString();
 }
 
-//ORM SQL functions
 const orm = {
-    //selectAll
-    all: (tableInput, cb) => {
+    all: (tableInput, callback) => {
         let queryString = "SELECT * FROM " + tableInput + ";";
-        connection.query(queryString, (err, result) => {
+        connection.query(queryString,  (err, result) => {
             if (err) {
                 throw err;
             }
-            cb(result);
+            callback(result);
         });
     },
-    //insertOne
-    create:  (table, cols, vals, cb) => {
+    create: (table, cols, vals, callback) => {
         let queryString = "INSERT INTO " + table;
 
         queryString += " (";
@@ -52,12 +51,11 @@ const orm = {
             if (err) {
                 throw err;
             }
-
-            cb(result);
+            callback(result);
         });
     },
-  //updateOne
-    update: (table, objColVals, condition, cb) => {
+
+    update: (table, objColVals, condition, callback) => {
         let queryString = "UPDATE " + table;
 
         queryString += " SET ";
@@ -66,15 +64,15 @@ const orm = {
         queryString += condition;
 
         console.log(queryString);
-        connection.query(queryString, (err, result) => {
+
+        connection.query(queryString, (err, result)=> {
             if (err) {
                 throw err;
             }
-
-            cb(result);
+            callback(result);
         });
     }
 };
 
-//export orm in module.exports
+
 module.exports = orm;

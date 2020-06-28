@@ -1,24 +1,24 @@
-//import orm.js into burger.js
-const orm = require('../config/orm.js');
-//create the code to call the orm functions using burger specific input for the orm
+const orm = require("../config/orm.js");
 
 const burger = {
-    all: (cb) => {
-        orm.all('burgers', (result) => {
-            cb(result)
+    all: (callback) => {
+        orm.all("burgers", (response) => {
+            callback(response);
         });
     },
-    create: (cols, vals, cb) => {
-        orm.create('burgers', cols, vals, (result) => {
-            cb(result);
-        });
+    create: (name, callback) => {
+        orm.create("burgers", [
+            "burger_name", "devoured"
+        ], [
+            name, false
+        ], callback);
     },
-    update: (objColVals, condition, cb) => {
-        orm.update('burgers', objColVals, condition, (result) => {
-            cb(result);
-        });
+    update: (id, callback) => {
+        let condition = "id=" + id;
+        orm.update("burgers", {
+            devoured: true
+        }, condition, callback);
     }
 };
 
-//export at the end
 module.exports = burger;

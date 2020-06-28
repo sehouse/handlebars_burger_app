@@ -1,0 +1,35 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 45px;
+    background: darkviolet;
+    color: rgb(124, 9, 70)
+}
+
+pre{
+    color: gainsboro;
+}
+.navbar{
+    background: darkslateblue
+}
+
+.card-body{
+    background: deeppink
+}
+.card-header {
+    background-color: darkblue;
+    color: gainsboro;
+}
+
+.btn{
+    background: darkslateblue
+}
+
+.col-md-6{
+    background-color: deeppink;
+    border-radius: 15px 15px 15px 15px;
+    border:solid white;
+}

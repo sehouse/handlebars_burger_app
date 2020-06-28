@@ -1,5 +1,4 @@
 const mysql = require('mysql');
-const express = require('express');
 require('dotenv').config();
 
 var connection;
@@ -9,11 +8,11 @@ if (process.env.JAWSDB_URL) {
 
 } else{}
 connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
+    host: 'gp96xszpzlqupw4k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+    user: 'j9x85o4ia5sj3qqy',
+    password: 'gukz93mxuhz75i65',
+    port: 3306,
+    database: 'qpwyk16bxgxl3km9'
 });
 
 connection.connect((err) => {
